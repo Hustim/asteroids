@@ -25,6 +25,7 @@ def main():
 
     asteroidfield = AsteroidField()
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    score = 0
     while True:
          for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -40,9 +41,12 @@ def main():
                  return
              for shot in shots:
                  if asteroid.collision_check(shot):
+                    score = score + 1
                     asteroid.split()
                     shot.kill()
-                 
+         font = pygame.font.SysFont("Arial", 36)
+         txtsurf = font.render(score, True, white)
+         screen.blit(txtsurf,(40 - txtsurf.get_width() // 2, 40 - txtsurf.get_height() // 2))
          pygame.display.update()
          dt = clock.tick(60) / 1000
 
