@@ -46,7 +46,7 @@ def main():
                     asteroid.split()
                     shot.kill()
          font = pygame.font.SysFont("Arial", 36)
-         txtsurf = font.render(score, True, white)
+         txtsurf = font.render(str(score), True, white)
          screen.blit(txtsurf,(40 - txtsurf.get_width() // 2, 40 - txtsurf.get_height() // 2))
          pygame.display.update()
          dt = clock.tick(60) / 1000
